@@ -6,22 +6,22 @@ import { useInView } from "react-intersection-observer";
 // Parent Reviews Data
 const reviews = [
   {
-    name: "Anita Sharma",
+    name: "Vikas Shilimkar",
     feedback:
       "This preschool is the best decision we made for our child! The phonics learning and caring staff made a huge difference.",
   },
   {
-    name: "Rohit Mehta",
+    name: "Manoj Walhekar",
     feedback:
       "Amazing learning environment! My child loves the activities and interactive games. Highly recommended!",
   },
   {
-    name: "Pooja Verma",
+    name: "Amol Adsule",
     feedback:
       "The school’s expert-designed syllabus and CCTV security made us feel confident in our choice. Great experience!",
   },
   {
-    name: "Suresh Nair",
+    name: "Dheeraj Jangam",
     feedback:
       "The staff is very professional and caring. My kid enjoys every day here. Special thanks to the teachers!",
   },
@@ -90,14 +90,14 @@ const ParentsReviews = () => {
       </motion.div>
 
       {/* Buttons for More Reviews & Add Review */}
-      <motion.div
+      {/* <motion.div
         className="mt-10 flex flex-col md:flex-row justify-center gap-4"
         initial={{ opacity: 0, y: 20 }}
         animate={inView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 1, delay: 0.5 }}
       >
         <a
-          href="https://www.google.com/search?q=preschool+reviews"
+          href=""
           target="_blank"
           rel="noopener noreferrer"
           className="bg-blue-500 text-white px-6 py-3 rounded-full text-lg font-semibold shadow-md hover:bg-blue-700 transition"
@@ -105,14 +105,14 @@ const ParentsReviews = () => {
           Read More Reviews
         </a>
         <a
-          href="https://www.google.com/maps/place/YOUR-PRESCHOOL-NAME/reviews"
+          href=""
           target="_blank"
           rel="noopener noreferrer"
           className="bg-green-500 text-white px-6 py-3 rounded-full text-lg font-semibold shadow-md hover:bg-green-700 transition"
         >
           Add a Review
         </a>
-      </motion.div>
+      </motion.div> */}
     </motion.div>
   );
 };

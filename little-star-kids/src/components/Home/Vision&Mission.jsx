@@ -59,18 +59,18 @@ const HomeSection = () => {
       >
         <div className="tv-frame p-4 md:p-6 border-[10px] md:border-[12px] lg:border-[16px] border-gray-800 rounded-xl bg-gray-900 shadow-lg relative lg:scale-[1.3]">
           <a
-            href="https://www.youtube.com/watch?v=YOUR_VIDEO_ID"
+            href="https://youtu.be/EO_6wnGTN8Q?si=vx3ESeRzFfL4KpH7"
             target="_blank"
             rel="noopener noreferrer"
             className="block relative group w-full h-full"
           >
             <motion.img
-              src="https://img.youtube.com/vi/YOUR_VIDEO_ID/maxresdefault.jpg"
+              src="https://i.ytimg.com/vi/EO_6wnGTN8Q/hqdefault.jpg?sqp=-oaymwEnCNACELwBSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLBRbOwdA_qmmzDF76ETWlKCnqC6vA"
               alt="School Preview"
               className="w-full h-full object-cover rounded-lg shadow-md transform transition duration-500 group-hover:scale-105"
             />
             <motion.div
-              className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-30 rounded-lg"
+              className="absolute inset-0 flex items-center justify-center rounded-lg"
               animate={{ opacity: [0.6, 0.8, 0.6] }}
               transition={{ repeat: Infinity, duration: 2 }}
             >

@@ -52,16 +52,26 @@ const Inquiry = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    
     if (!validateForm()) return;
 
     setIsSubmitting(true);
+
+    // Clear form fields immediately
+    setFormData({
+      name: "",
+      phone: "",
+      village: "",
+      admissionYear: "",
+      query: "",
+    });
 
     try {
       const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          access_key: "YOUR_WEB3FORMS_ACCESS_KEY", // Replace with actual Web3Forms key
+          access_key: "732ce86b-f0ae-4d2d-9f75-8c44bd91634f", // Replace with actual Web3Forms key
           ...formData,
         }),
       });
@@ -70,13 +80,6 @@ const Inquiry = () => {
 
       if (result.success) {
         toast.success("Inquiry Submitted Successfully!");
-        setFormData({
-          name: "",
-          phone: "",
-          village: "",
-          admissionYear: "",
-          query: "",
-        });
       } else {
         toast.error("Submission Failed. Try Again!");
       }
@@ -89,7 +92,7 @@ const Inquiry = () => {
 
   return (
     <div className="relative">
-      {/* Background Image with Fade-in Effect */}
+      {/* Background Image */}
       <motion.img
         src="/assets/contact.jpeg"
         alt="About Us"
@@ -99,12 +102,10 @@ const Inquiry = () => {
         transition={{ duration: 1.5, ease: "easeInOut" }}
       />
 
-      {/* Notification Toaster with Fade-in */}
-      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1.2 }}>
-        <Toaster position="top-center" reverseOrder={false} />
-      </motion.div>
+      {/* Notification Toaster */}
+      <Toaster position="top-center" reverseOrder={false} />
 
-      {/* Content Container with Fade-in */}
+      {/* Content Container */}
       <motion.div
         className="relative z-10 py-9 px-6 md:px-20 text-gray-900 bg-blue-100"
         initial={{ opacity: 0 }}
@@ -126,26 +127,27 @@ const Inquiry = () => {
             {/* Left Side - Contact Info */}
             <ScrollAnimation>
               <div className="bg-gray-200 p-6 rounded-lg shadow-md">
-                <h3 className="text-2xl font-semibold text-gray-800">Contact Information</h3>
-                <p className="mt-2 text-gray-700">Reach out to us for any inquiries or visit our school.</p>
+                <h3 className="text-2xl font-semibold text-gray-800">
+                  Contact Information
+                </h3>
+                <p className="mt-2 text-gray-700">
+                  Reach out to us for any inquiries or visit our school.
+                </p>
 
                 <div className="mt-4 space-y-4">
-                  {/* Phone */}
                   <p className="flex items-center gap-3 text-lg text-gray-700">
                     <FaPhoneAlt className="text-gray-600 text-xl shrink-0" />
-                    <span className="break-words">+91 97624 38948</span>
+                    <span>+91 97624 38948</span>
                   </p>
 
-                  {/* Email */}
                   <p className="flex items-center gap-3 text-lg text-gray-700">
                     <FaEnvelope className="text-gray-600 text-xl shrink-0" />
-                    <span className="break-words">littlestarkids01@gmail.com</span>
+                    <span>littlestarkids01@gmail.com</span>
                   </p>
 
-                  {/* Address */}
                   <p className="flex items-start gap-3 text-lg text-gray-700">
                     <FaMapMarkerAlt className="text-gray-600 text-xl shrink-0 mt-1" />
-                    <span className="break-words">
+                    <span>
                       Nasrapur, Cheladi Phata, Near PDCC Bank, 1st Floor, A/p. Nasrapur, Tal. Bhor, Dist. Pune, 412213
                     </span>
                   </p>
@@ -162,36 +164,33 @@ const Inquiry = () => {
                 <h3 className="text-2xl font-semibold text-gray-800">Inquiry Form</h3>
 
                 <div className="mt-4 space-y-4">
-                  {/* Name Field */}
                   <input
                     type="text"
                     name="name"
                     placeholder="Your Name"
                     value={formData.name}
                     onChange={handleChange}
-                    className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-400"
+                    className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-gray-400"
                   />
                   {errors.name && <p className="text-red-600">{errors.name}</p>}
 
-                  {/* Phone Field */}
                   <input
                     type="text"
                     name="phone"
                     placeholder="Phone Number"
                     value={formData.phone}
                     onChange={handleChange}
-                    className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-400"
+                    className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-gray-400"
                   />
                   {errors.phone && <p className="text-red-600">{errors.phone}</p>}
 
-                  {/* Village Field */}
                   <input
                     type="text"
                     name="village"
                     placeholder="Village"
                     value={formData.village}
                     onChange={handleChange}
-                    className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-400"
+                    className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-gray-400"
                   />
                   {errors.village && <p className="text-red-600">{errors.village}</p>}
 
@@ -210,7 +209,15 @@ const Inquiry = () => {
                   </select>
                   {errors.admissionYear && <p className="text-red-600">{errors.admissionYear}</p>}
 
-                  {/* Submit Button */}
+                  <textarea
+                    name="query"
+                    placeholder="Your Query"
+                    value={formData.query}
+                    onChange={handleChange}
+                    className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-gray-400"
+                  ></textarea>
+                  {errors.query && <p className="text-red-600">{errors.query}</p>}
+
                   <button
                     type="submit"
                     className="w-full bg-gray-800 text-white py-3 rounded-lg hover:bg-gray-900 transition"

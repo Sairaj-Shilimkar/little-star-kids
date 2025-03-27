@@ -153,6 +153,7 @@ const AboutUs = () => {
       </section>
 
       {/* Google Map Location */}
+      {/* Google Map Location */}
       <section className="py-16 px-6 md:px-20 bg-gray-200">
         <ScrollAnimation>
           <motion.h2
@@ -174,6 +175,8 @@ const AboutUs = () => {
             Visit us at our school campus...
           </motion.p>
         </ScrollAnimation>
+
+        {/* Google Map Embed */}
         <div className="mt-8 flex justify-center">
           <motion.div
             className="w-full max-w-3xl h-64 md:h-80 shadow-lg rounded-lg overflow-hidden"
@@ -181,16 +184,31 @@ const AboutUs = () => {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1 }}
           >
-            <iframe title="Google Map"
+            <iframe
+              title="Google Map"
               className="w-full h-full"
-              src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d473.6198166429058!2d73.88515682793387!3d18.25772241017383!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1742555949907!5m2!1sen!2sin" allowFullScreen
+              src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d473.6198166429058!2d73.88515682793387!3d18.25772241017383!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1742555949907!5m2!1sen!2sin"
+              allowFullScreen
             ></iframe>
           </motion.div>
         </div>
+
+        {/* Get Directions Button */}
+        <div className="mt-6 text-center">
+          <motion.a
+            href="https://www.google.com/maps/dir/?api=1&destination=18.25772241017383,73.88515682793387"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-blue-600 text-white py-2 px-6 rounded-lg hover:bg-blue-700 transition duration-300 inline-block"
+            whileHover={{ scale: 1.1 }}
+          >
+            Get Directions
+          </motion.a>
+        </div>
       </section>
+
     </div>
   );
 };
 
 export default AboutUs;
-
